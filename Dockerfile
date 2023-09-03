@@ -18,6 +18,7 @@ WORKDIR /app
 
 # Install dependencies
 # Add `poetry` to PATH
+RUN "which poetry"
 RUN "poetry install"
 EXPOSE 4999
 
