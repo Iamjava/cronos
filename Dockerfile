@@ -1,5 +1,5 @@
 # specify start image
-FROM python
+FROM python:alpine
 
 # all commands start from this directory
 WORKDIR /app
@@ -9,7 +9,7 @@ COPY . .
 
 RUN pip install poetry
 ENV PATH="${PATH}:/root/.poetry/bin"
-RUN "poetry install"
+RUN "python -m poetry install"
 EXPOSE 4999
 
 # set the start command
