@@ -1,5 +1,5 @@
-[tool.poetry]
-name = "bäckerone"
+tool.poetry]
+name = "cronos"
 version = "0.1.0"
 description = ""
 authors = ["Iamjava <jan.vaorin@tu-dortmund.de>"]
@@ -8,7 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.8"
 flask = "^2.3.2"
+requests = "^2.31.0"
+schedule = "^1.2.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+~
