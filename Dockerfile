@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . .
 
 RUN pip install poetry
-RUN poetry install
+RUN "poetry install"
+
 # set the start command
 CMD [ "poetry run python -m flask run --host=0.0.0.0 --port=4999"]
