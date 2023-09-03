@@ -1,11 +1,5 @@
-# specify start image
-FROM python:alpine
+FROM python:3.10
 
-# all commands start from this directory
-WORKDIR /app
-
-# copy all files from this folder to working directory (ignores files in .dockerignore)
-COPY . .
 # Configure Poetry
 ENV POETRY_VERSION=1.2.0
 ENV POETRY_HOME=/opt/poetry
@@ -17,6 +11,12 @@ RUN python3 -m venv $POETRY_VENV \
     && $POETRY_VENV/bin/pip install -U pip setuptools \
     && $POETRY_VENV/bin/pip install poetry==${POETRY_VERSION}
 
+# Add `poetry` to PATH
+ENV PATH="${PATH}:${POETRY_VENV}/bin"
+
+WORKDIR /app
+
+# Install dependencies
 # Add `poetry` to PATH
 RUN "poetry install"
 EXPOSE 4999
