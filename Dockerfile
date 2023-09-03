@@ -6,9 +6,18 @@ WORKDIR /app
 
 # copy all files from this folder to working directory (ignores files in .dockerignore)
 COPY . .
+# Configure Poetry
+ENV POETRY_VERSION=1.2.0
+ENV POETRY_HOME=/opt/poetry
+ENV POETRY_VENV=/opt/poetry-venv
+ENV POETRY_CACHE_DIR=/opt/.cache
 
-RUN pip install poetry
-ENV PATH="$HOME/.local/bin:$PATH"
+# Install poetry separated from system interpreter
+RUN python3 -m venv $POETRY_VENV \
+    && $POETRY_VENV/bin/pip install -U pip setuptools \
+    && $POETRY_VENV/bin/pip install poetry==${POETRY_VERSION}
+
+# Add `poetry` to PATH
 RUN "poetry install"
 EXPOSE 4999
 
