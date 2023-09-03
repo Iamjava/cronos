@@ -1,5 +1,5 @@
 FROM python:3.10
-ENV POETRY_VERSION=1.2.0
+ENV POETRY_VERSION=1.5.1
 ENV POETRY_VENV=/opt/poetry-venv
 
 # Install poetry separated from system interpreter
