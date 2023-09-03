@@ -8,7 +8,9 @@ WORKDIR /app
 COPY . .
 
 RUN pip install poetry
+ENV PATH="${PATH}:/root/.poetry/bin"
 RUN "poetry install"
+EXPOSE 4999
 
 # set the start command
 CMD [ "poetry run python -m flask run --host=0.0.0.0 --port=4999"]
