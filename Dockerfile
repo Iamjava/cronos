@@ -9,7 +9,7 @@ COPY . .
 
 RUN pip install poetry
 ENV PATH="$HOME/.local/bin:$PATH"
-RUN "python -m poetry install"
+RUN "poetry install"
 EXPOSE 4999
 
 # set the start command
