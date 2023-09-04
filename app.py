@@ -21,12 +21,15 @@ def index():
 
 @app.route('/', methods=['POST'])
 def eval():
-    dinge = request.form['res']
-    print("Evaluating", dinge)
-    ev = safe_eval(dinge)
-    print("Evaluated", ev)
-    ev["cron"] = request.form["cron"]
-    return ev or "KAPUTT"
+    try:
+        dinge = request.form['res']
+        print("Evaluating", dinge)
+        ev = safe_eval(dinge)
+        print("Evaluated", ev)
+        ev["cron"] = request.form["cron"]
+        return ev or "KAPUTT"
+    except: 
+        return "error" 
 
 
 def safe_eval(to_eval):
