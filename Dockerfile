@@ -18,4 +18,4 @@ RUN poetry install
 COPY . /app
 EXPOSE 4999
 # set the start command
-CMD [ "poetry", "run", "python", "-m", "flask", "run", "--port=4999"]
+CMD [ "poetry", "run", "python", "-m", "flask", "run", "--host=75.114.140.44", "--port=4999"]
